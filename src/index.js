@@ -1,6 +1,6 @@
-import { showCity, showTempearture, showIcon, showDescription, showHumidity, showWind }
-  from "./dom";
-
+import { showCity, showTempearture, showIcon, 
+  showDescription, showHumidity, showWind, searchCity,
+  searchCityBtn } from "./dom";
 
 
 async function fetchWeather(city) {
@@ -29,5 +29,10 @@ async function displayWeather(data) {
   console.log(showCity)
 }
 
+function search() {
+  fetchWeather(searchCity.value);
+}
 
-console.log(fetchWeather('Enugu'))
+searchCityBtn.addEventListener('click', () => {
+  search();
+});

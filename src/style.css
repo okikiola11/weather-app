@@ -52,6 +52,7 @@ button {
 
 button:hover {
   background: #7c7c7c6b;
+  color: #f8f8f8;
 }
 
 h1.show-temp {
@@ -59,7 +60,7 @@ h1.show-temp {
   margin-bottom: 0.4em;
 }
 
-input.search-city {
+input.search-city-input {
   border: none;
   outline: none;
   padding: 0.4em 1em;
