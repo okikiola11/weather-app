@@ -7,20 +7,23 @@
   <link rel="stylesheet" href="../src/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="body">
   <div class="container-fluid">
+    <div class="txt-center"> Your Weather Today </div>
+    
     <div class="card">
       <div class="search">
-        <input type="text" class="search-city-input">
+        <input type="text" class="search-city-input" placeholder="Enter your city...">
         <button class="search-city-btn">Search</button>
       </div>
-      <div class="weather">
+      <div class="weather loading">
         <h2 class="show-city"> Weather in Lagos</h2>
         <h1 class="show-temp">51°C</h1>
         <div class="flex">
           <img src="https://openweathermap.org/img/wn/02d.png" alt="Default image" class="show-icon">
           <div class="show-description"> Partly Cloudy </div>
         </div>
+        <div class="show-country">Nigeria</div>
         <div class="show-humidity"> Humidity: 60% </div>
         <div class="show-wind"> Wind speed: 6.2km/h </div>
       </div>

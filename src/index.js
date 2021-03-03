@@ -1,15 +1,13 @@
 import { showCity, showTempearture, showIcon, 
   showDescription, showHumidity, showWind, searchCity,
-  searchCityBtn } from "./dom";
+  searchCityBtn, showCountry, weatherContainer, showBodyBckImg } from "./dom";
+
 
 
 async function fetchWeather(city) {
-  let fetch_url = await fetch("http://api.openweathermap.org/data/2.5/weather?q="
-  + city 
-  + "&appid=" 
-  + apiKey );
+  let fetch_url = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`, { mode: 'cors' });
   let response = await fetch_url.json();
-  let result = await displayWeather(response)
+  let result = await displayWeather(response);
   console.log(result)
 }
 
@@ -18,12 +16,16 @@ async function displayWeather(data) {
   const { icon, description } = await data.weather[0];
   const { temp, humidity } = await data.main;
   const { speed } = await data.wind;
+  const { country } = await data.sys;
   showCity.innerText = `Weather in ${name}`;
   showIcon.src = `https://openweathermap.org/img/wn/${icon}.png`;
   showDescription.innerText = description;
   showTempearture.innerText = temp + "°C";
+  showCountry.innerText = ` Country: ${country} `;
   showHumidity.innerText = ` Humidity: ${humidity} %`;
   showWind.innerText = ` Wind speed: ${speed} km/h`;
+  weatherContainer.classList.remove("loading");
+  showBodyBckImg.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${name}')`;
 
   console.log(name, icon, description, temp, humidity, speed);
 }
@@ -37,5 +39,5 @@ searchCityBtn.addEventListener('click', () => {
 });
 
 searchCity.addEventListener("keyup", (e) => {
-  if (e.key == "Enter") search();
+  if (e.key == "Enter") { search() };
 })

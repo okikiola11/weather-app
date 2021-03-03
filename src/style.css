@@ -15,6 +15,10 @@ body {
   background-image: url('https://source.unsplash.com/1600x900/?landscape');
 }
 
+.txt-center {
+  font-size: 50px;
+}
+
 h2.show-city {
   text-transform: uppercase;
 }
@@ -81,4 +85,15 @@ input.search-city-input {
 .show-description {
   text-transform: uppercase;
   margin-left: 8px;
+}
+
+.weather.loading {
+  visibility: hidden;
+  max-height: 20px;
+}
+
+.weather.loading:before {
+  visibility: visible;
+  content: "Loading...";
+  color: #ffffff;
 }
