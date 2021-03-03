@@ -14,10 +14,10 @@ async function fetchWeather(city) {
 }
 
 async function displayWeather(data) {
-  const { name } = data;
-  const { icon, description } = data.weather[0];
-  const { temp, humidity } = data.main;
-  const { speed } = data.wind;
+  const { name } = await data;
+  const { icon, description } = await data.weather[0];
+  const { temp, humidity } = await data.main;
+  const { speed } = await data.wind;
   showCity.innerText = `Weather in ${name}`;
   showIcon.src = `https://openweathermap.org/img/wn/${icon}.png`;
   showDescription.innerText = description;
@@ -26,13 +26,16 @@ async function displayWeather(data) {
   showWind.innerText = ` Wind speed: ${speed} km/h`;
 
   console.log(name, icon, description, temp, humidity, speed);
-  console.log(showCity)
 }
 
-function search() {
-  fetchWeather(searchCity.value);
+async function search() {
+  await fetchWeather(searchCity.value);
 }
 
 searchCityBtn.addEventListener('click', () => {
   search();
 });
+
+searchCity.addEventListener("keyup", (e) => {
+  if (e.key == "Enter") search();
+})
