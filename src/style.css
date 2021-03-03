@@ -34,7 +34,12 @@ h2.show-city {
   width: 100%;
 }
 
+.weather {
+  margin-top: 20px;
+}
+
 button {
+  cursor: pointer;
   border: none;
   outline: none;
   padding: 2px;
@@ -43,6 +48,15 @@ button {
   border-bottom-right-radius: 10px;
   height: 44px;
   transition: .2s ease-in-out;
+}
+
+button:hover {
+  background: #7c7c7c6b;
+}
+
+h1.show-temp {
+  margin: 0;
+  margin-bottom: 0.4em;
 }
 
 input.search-city {
@@ -58,3 +72,12 @@ input.search-city {
   width: calc(100% - 100px);
 }
 
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.show-description {
+  text-transform: uppercase;
+  margin-left: 8px;
+}

@@ -1,4 +1,4 @@
-import { showCity, showTempearture, showDescription, showHumidity, showWind }
+import { showCity, showTempearture, showIcon, showDescription, showHumidity, showWind }
   from "./dom";
 
 
@@ -19,30 +19,15 @@ async function displayWeather(data) {
   const { temp, humidity } = data.main;
   const { speed } = data.wind;
   showCity.innerText = `Weather in ${name}`;
+  showIcon.src = `https://openweathermap.org/img/wn/${icon}.png`;
+  showDescription.innerText = description;
+  showTempearture.innerText = temp + "°C";
+  showHumidity.innerText = ` Humidity: ${humidity} %`;
+  showWind.innerText = ` Wind speed: ${speed} km/h`;
+
   console.log(name, icon, description, temp, humidity, speed);
   console.log(showCity)
 }
 
 
-// let weather = {
-//   apiKey: "70c8519b5e37ccac35bcbea2d8b91b5b",
-//   fetchWeather: function(city) {
-//     fetch(
-//       "http://api.openweathermap.org/data/2.5/weather?q=" 
-//       + city 
-//       + "&appid=" 
-//       + this.apiKey
-//     )
-//     .then((response) => response.json())
-//     .then((data) => this.displayWeather(data));
-//   },
-//   displayWeather: function(data) {
-//     const { name } = data;
-//     const { icon, description } = data.weather[0];
-//     const { temp, humidity } = data.main;
-//     const { speed } = data.wind;
-//     console.log(name, icon, description, temp, humidity, speed);
-//   }
-// };
-
-console.log(fetchWeather('Tokyo'))
+console.log(fetchWeather('Enugu'))
