@@ -8,8 +8,9 @@ const searchCity = document.querySelector(".search-city-input");
 const showCountry = document.querySelector(".show-country");
 const searchCityBtn = document.querySelector(".search-city-btn");
 const weatherContainer = document.querySelector(".weather");
-const showBodyBckImg = document.querySelector("#body"); 
+const showBodyBckImg = document.getElementsByTagName("body")[0]; 
+const showTempDegButton = document.querySelector(".switch-unit");
 
 export { showCity, showTempearture, showIcon, showDescription, 
   showHumidity, showWind, searchCity, searchCityBtn, weatherContainer,
-  showBodyBckImg, showCountry }
+  showBodyBckImg, showCountry, showTempDegButton }

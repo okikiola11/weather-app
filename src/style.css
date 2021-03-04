@@ -23,6 +23,10 @@ h2.show-city {
   text-transform: uppercase;
 }
 
+.show-temp {
+  cursor: pointer;
+}
+
 .card {
   background-color: #000000d0;
   color: #ffffff;
@@ -38,11 +42,23 @@ h2.show-city {
   width: 100%;
 }
 
+.switch-unit {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 8px;
+  width: 5em;
+  border-radius: 10px;
+  margin-top: 10px;
+  font-size: 17px;
+  transition: .2s ease-in-out;
+}
+
 .weather {
   margin-top: 20px;
 }
 
-button {
+.search-city-btn {
   cursor: pointer;
   border: none;
   outline: none;
@@ -54,7 +70,7 @@ button {
   transition: .2s ease-in-out;
 }
 
-button:hover {
+.search-city-btn:hover {
   background: #7c7c7c6b;
   color: #f8f8f8;
 }
