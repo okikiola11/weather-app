@@ -44,13 +44,12 @@ h2.show-city {
 
 .switch-unit {
   cursor: pointer;
-  border: none;
-  outline: none;
-  padding: 8px;
-  width: 5em;
+  width: 25px;
+  padding: 1px 10px;
   border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 17px;
+  background-color: #7c7c7c6b;
   transition: .2s ease-in-out;
 }
 

@@ -3,26 +3,41 @@ import { showCity, showTempearture, showIcon,
   searchCityBtn, showCountry, weatherContainer, 
   showBodyBckImg, showTempDegButton } from "./dom";
 
+let temperatureDegButton = showTempDegButton;
 
 async function fetchWeather(city) {
-  let fetch_url = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`, { mode: 'cors' });
-  let response = await fetch_url.json();
-  let result = await displayWeather(response);
+  try {
+    let fetch_url = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`, { mode: 'cors' });
+    let response = await fetch_url.json();
+    let result = await displayWeather(response);
+    return result;
+  } catch (err) {
+    showCity.innerText = `No data available for ${city}`;
+    showIcon.src = '';
+    showDescription.innerText = '';
+    showTempearture.innerText = '';
+    showCountry.innerText = '';
+    showHumidity.innerText = '';
+    showWind.innerText = '';
+    showTempDegButton.style.display = 'none';
+  }
 }
 
 const switchButton = (type) => {
-  showTempDegButton.innerHTML = type;
-  weatherContainer.appendChild(showTempDegButton);
-  return showTempDegButton;
+  const btn = document.createElement('btn');
+  btn.className = 'switch-unit';
+  btn.innerHTML = type;
+  weatherContainer.appendChild(btn);
+  return btn;
 }
 
 const temperatureSwitch = (val, type) => {
-  let temp;
+  let temp = null;
   if (type === '℃') {
-    temp = Math.floor(val * (9/5) + 32);
+    temp = (val * (9/5) + 32).toFixed(1);
     type = '℉';
   } else {
-    temp = Math.floor((val - 32) * (5/9));
+    temp = ((val - 32) * (5/9)).toFixed(1);
     type = '℃';
   }
   return { temp, type };
@@ -45,13 +60,13 @@ async function displayWeather(data) {
   weatherContainer.classList.remove("loading");
   showBodyBckImg.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${name}')`;
 
-  let tempDataVal = temp;
-  showTempDegButton.addEventListener('click', (e) => {
+  let tempDataVal = data.main.temp;
+  temperatureDegButton.addEventListener('click', (e) => {
     e.preventDefault();
     
-    const tempSwitch = temperatureSwitch(tempDataVal, showTempDegButton.innerHTML);
+    const tempSwitch = temperatureSwitch(tempDataVal, temperatureDegButton.innerHTML);
     tempDataVal = tempSwitch.temp;
-    showTempDegButton.innerHTML = tempSwitch.type;
+    temperatureDegButton.innerHTML = tempSwitch.type;
     showTempearture.innerHTML = `${tempSwitch.temp}${tempSwitch.type}`;
   });
   
@@ -59,16 +74,19 @@ async function displayWeather(data) {
 
 async function search() {
   await fetchWeather(searchCity.value);
+  searchCity.value = '';
 }
 
 searchCityBtn.addEventListener('click', () => {
-  switchButton('℃');
+  temperatureDegButton.remove();
+  temperatureDegButton = switchButton('℃');
   search();
 });
 
 searchCity.addEventListener("keyup", (e) => {
   if (e.key == "Enter") { 
-    switchButton('℃');
+    temperatureDegButton.remove();
+    temperatureDegButton = switchButton('℃');
     search();
   };
 });
