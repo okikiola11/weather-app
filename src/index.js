@@ -12,7 +12,7 @@ let temperatureDegButton = showTempDegButton;
 
 async function fetchWeather(city) {
   try {
-    const fetchUrl = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`, { mode: 'cors' });
+    const fetchUrl = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`, { mode: 'cors' });
     const response = await fetchUrl.json();
     const result = await displayWeather(response);
     return result;
