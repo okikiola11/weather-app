@@ -10,7 +10,7 @@ import {
 const API_KEY = '70c8519b5e37ccac35bcbea2d8b91b5b';
 let temperatureDegButton = showTempDegButton;
 
-async function fetchWeather(city) {
+const fetchWeather = async (city) => {
   try {
     const fetchUrl = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`, { mode: 'cors' });
     const response = await fetchUrl.json();
@@ -18,7 +18,7 @@ async function fetchWeather(city) {
     return result;
   } catch (err) {
     showCity.innerText = `No data available for ${city}`;
-    showIcon.src = '';
+    showIcon.style.display = 'none';;
     showDescription.innerText = '';
     showTempearture.innerText = '';
     showCountry.innerText = '';
@@ -48,7 +48,7 @@ const temperatureSwitch = (val, type) => {
   return { temp, type };
 };
 
-async function displayWeather(data) {
+const displayWeather = async (data) => {
   const { name } = await data;
   const { icon, description } = await data.weather[0];
   const { temp, humidity } = await data.main;
@@ -76,8 +76,9 @@ async function displayWeather(data) {
   });
 }
 
-async function search() {
+const search = async () => {
   await fetchWeather(searchCity.value);
+  console.log(searchCity.value);
   searchCity.value = '';
 }
 

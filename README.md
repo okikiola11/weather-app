@@ -22,7 +22,7 @@ To get a copy up and running follow these simple example steps:-
 ## Usage
 - Clone the project to your local machine
 - Run npm install
-- npm run watch
+- npm run dev
 
 
 ### Live Demo
