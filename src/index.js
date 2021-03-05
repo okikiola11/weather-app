@@ -10,7 +10,7 @@ import {
 const API_KEY = '70c8519b5e37ccac35bcbea2d8b91b5b';
 let temperatureDegButton = showTempDegButton;
 
-const fetchWeather = async (city) => {
+async function fetchWeather(city) {
   try {
     const fetchUrl = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`, { mode: 'cors' });
     const response = await fetchUrl.json();
@@ -26,7 +26,7 @@ const fetchWeather = async (city) => {
     showWind.innerText = '';
     showTempDegButton.style.display = 'none';
   }
-};
+}
 
 const switchButton = (type) => {
   const btn = document.createElement('btn');
@@ -48,7 +48,7 @@ const temperatureSwitch = (val, type) => {
   return { temp, type };
 };
 
-const displayWeather = async (data) => {
+async function displayWeather(data) {
   const { name } = await data;
   const { icon, description } = await data.weather[0];
   const { temp, humidity } = await data.main;
@@ -58,12 +58,14 @@ const displayWeather = async (data) => {
   showCity.innerText = `Weather in ${name}`;
   showIcon.src = `https://openweathermap.org/img/wn/${icon}.png`;
   showDescription.innerText = description;
-  showTempearture.innerHTML = `${temp}℃`;
+  showTempearture.innerHTML = `${(temp / 10).toFixed(2)}℃`;
   showCountry.innerText = ` Country: ${country} `;
   showHumidity.innerText = ` Humidity: ${humidity} %`;
   showWind.innerText = ` Wind speed: ${speed} m/s`;
+  showTempDegButton.className = 'switch_unit';
   weatherContainer.classList.remove('loading');
   showBodyBckImg.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${name}')`;
+
 
   let tempDataVal = data.main.temp;
   temperatureDegButton.addEventListener('click', (e) => {
@@ -72,14 +74,15 @@ const displayWeather = async (data) => {
     const tempSwitch = temperatureSwitch(tempDataVal, temperatureDegButton.innerHTML);
     tempDataVal = tempSwitch.temp;
     temperatureDegButton.innerHTML = tempSwitch.type;
-    showTempearture.innerHTML = `${tempSwitch.temp}${tempSwitch.type}`;
-  });
-};
 
-const search = async () => {
+    showTempearture.innerHTML = `${Math.floor(tempSwitch.temp) / 10}${tempSwitch.type}`;
+  });
+}
+
+async function search() {
   await fetchWeather(searchCity.value);
   searchCity.value = '';
-};
+}
 
 searchCityBtn.addEventListener('click', () => {
   temperatureDegButton.remove();
@@ -94,3 +97,5 @@ searchCity.addEventListener('keyup', (e) => {
     search();
   }
 });
+
+fetchWeather('New york');
