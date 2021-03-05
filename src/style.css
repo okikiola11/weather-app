@@ -11,7 +11,7 @@ body {
   height: 100vh;
   margin: 0;
   font-family: 'Architects Daughter', cursive;
-  background-color: #222222;
+  background-color: #222;
   background-image: url('https://source.unsplash.com/1600x900/?landscape');
 }
 
@@ -29,7 +29,7 @@ h2.show-city {
 
 .card {
   background-color: #000000d0;
-  color: #ffffff;
+  color: #fff;
   padding: 2em;
   border-radius: 30px;
   width: 100%;
@@ -50,7 +50,7 @@ h2.show-city {
   margin-top: 15px;
   font-size: 17px;
   background-color: #7c7c7c6b;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .weather {
@@ -66,7 +66,7 @@ h2.show-city {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   height: 44px;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
 }
 
 .search-city-btn:hover {
@@ -83,7 +83,6 @@ input.search-city-input {
   border: none;
   outline: none;
   padding: 0.4em 1em;
-  border: 18px;
   font-family: inherit;
   font-size: 105%;
   border-top-left-radius: 10px;
@@ -107,8 +106,8 @@ input.search-city-input {
   max-height: 20px;
 }
 
-.weather.loading:before {
+.weather.loading::before {
   visibility: visible;
   content: "Loading...";
-  color: #ffffff;
+  color: #fff;
 }
