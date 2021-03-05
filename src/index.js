@@ -18,7 +18,7 @@ const fetchWeather = async (city) => {
     return result;
   } catch (err) {
     showCity.innerText = `No data available for ${city}`;
-    showIcon.style.display = 'none';;
+    showIcon.style.display = 'none';
     showDescription.innerText = '';
     showTempearture.innerText = '';
     showCountry.innerText = '';
@@ -26,7 +26,7 @@ const fetchWeather = async (city) => {
     showWind.innerText = '';
     showTempDegButton.style.display = 'none';
   }
-}
+};
 
 const switchButton = (type) => {
   const btn = document.createElement('btn');
@@ -74,13 +74,12 @@ const displayWeather = async (data) => {
     temperatureDegButton.innerHTML = tempSwitch.type;
     showTempearture.innerHTML = `${tempSwitch.temp}${tempSwitch.type}`;
   });
-}
+};
 
 const search = async () => {
   await fetchWeather(searchCity.value);
-  console.log(searchCity.value);
   searchCity.value = '';
-}
+};
 
 searchCityBtn.addEventListener('click', () => {
   temperatureDegButton.remove();
