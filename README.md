@@ -26,7 +26,7 @@ To get a copy up and running follow these simple example steps:-
 
 
 ### Live Demo
-<a href="https://rawcdn.githack.com/okikiola11/weather-app/257a38bc4a72eb8a929b2f322d75e889c3f2ded1/dist/index.html">Click here</div>
+<a href="https://rawcdn.githack.com/okikiola11/weather-app/334b8d332fa102b77e5d8ac4a42980d33aeafd52/dist/index.html">Click here</div>
 
 
 ## Author
