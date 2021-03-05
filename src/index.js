@@ -3,6 +3,7 @@ import { showCity, showTempearture, showIcon,
   searchCityBtn, showCountry, weatherContainer, 
   showBodyBckImg, showTempDegButton } from "./dom";
 
+let API_KEY = "70c8519b5e37ccac35bcbea2d8b91b5b";
 let temperatureDegButton = showTempDegButton;
 
 async function fetchWeather(city) {
