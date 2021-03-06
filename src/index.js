@@ -7,12 +7,12 @@ import {
   showBodyBckImg, showTempDegButton,
 } from './dom';
 
-const API_KEY = '70c8519b5e37ccac35bcbea2d8b91b5b';
+const myKey = config.API_KEY;
 let temperatureDegButton = showTempDegButton;
 
 async function fetchWeather(city) {
   try {
-    const fetchUrl = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`, { mode: 'cors' });
+    const fetchUrl = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myKey}`, { mode: 'cors' });
     const response = await fetchUrl.json();
     const result = await displayWeather(response);
     return result;
