@@ -1,5 +1,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable no-use-before-define */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import {
   showCity, showTempearture, showIcon,
   showDescription, showHumidity, showWind, searchCity,
