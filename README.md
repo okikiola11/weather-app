@@ -11,6 +11,13 @@ In this app, users can enter the name of a city and see the weather conditions. 
 - Webpack
 - HTML & CSS
 
+## Setup
+- Create a config file to hide your generated API KEYS
+- Add the file to your .gitignore file
+- The config file should look like this OR use this <a href="https://gist.github.com/derzorngottes/3b57edc1f996dddcab25">Hide API keys</a> 
+
+![screenshot](src/images/screenshot2.png)
+
 ## Getting Started
 To get a copy up and running follow these simple example steps:-
 
