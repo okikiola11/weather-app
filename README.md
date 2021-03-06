@@ -22,7 +22,7 @@ In this app, users can enter the name of a city and see the weather conditions. 
 To get a copy up and running follow these simple example steps:-
 
 - Clone https://github.com/okikiola11/weather-app.git to your local machine.
-- cd into the restaurant-page directory and navigate into the dist directory.
+- cd into the weather-app directory and navigate into the dist directory.
 - Open the index.html file with the browser
 
 

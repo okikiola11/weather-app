@@ -13,7 +13,7 @@ import config from '../config';
 const myKey = config.API_KEY;
 let temperatureDegButton = showTempDegButton;
 
-async function fetchWeather(city) {
+const fetchWeather = async (city) => {
   try {
     const fetchUrl = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myKey}`, { mode: 'cors' });
     const response = await fetchUrl.json();
@@ -29,7 +29,7 @@ async function fetchWeather(city) {
     showWind.innerText = '';
     showTempDegButton.style.display = 'none';
   }
-}
+};
 
 const switchButton = (type) => {
   const btn = document.createElement('btn');
@@ -51,7 +51,7 @@ const temperatureSwitch = (val, type) => {
   return { temp, type };
 };
 
-async function displayWeather(data) {
+const displayWeather = async (data) => {
   const { name } = await data;
   const { icon, description } = await data.weather[0];
   const { temp, humidity } = await data.main;
@@ -80,12 +80,12 @@ async function displayWeather(data) {
 
     showTempearture.innerHTML = `${Math.floor(tempSwitch.temp) / 10}${tempSwitch.type}`;
   });
-}
+};
 
-async function search() {
+const search = async () => {
   await fetchWeather(searchCity.value);
   searchCity.value = '';
-}
+};
 
 searchCityBtn.addEventListener('click', () => {
   temperatureDegButton.remove();
