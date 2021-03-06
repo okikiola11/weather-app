@@ -1,0 +1,39 @@
+{
+  "name": "js-weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "watch": "webpack --mode development --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okikiola11/weather-app.git"
+  },
+  "keywords": [],
+  "author": "Apelehin Okikiola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/okikiola11/weather-app/issues"
+  },
+  "homepage": "https://github.com/okikiola11/weather-app#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "css-loader": "^5.1.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "style-loader": "^2.0.0",
+    "stylelint": "^13.3.3",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.17.2",
+    "uninstall": "0.0.0",
+    "webpack": "^5.24.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
