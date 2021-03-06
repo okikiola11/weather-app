@@ -6,6 +6,7 @@ import {
   searchCityBtn, showCountry, weatherContainer,
   showBodyBckImg, showTempDegButton,
 } from './dom';
+import config from '../config';
 
 const myKey = config.API_KEY;
 let temperatureDegButton = showTempDegButton;
